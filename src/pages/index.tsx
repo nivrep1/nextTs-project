@@ -4,6 +4,8 @@ import { Htag, Button, P, Tag, Rating } from "../../components";
 export default function Home(): JSX.Element {
   const [counter, setCounter] = useState<number>(0);
 
+  const [rating, setRating] = useState<number>(4);
+
   useEffect(() => {
     console.log("Counter" + counter);
     return function cleanup() {
@@ -20,7 +22,7 @@ export default function Home(): JSX.Element {
       >
         Knopka
       </Button>
-      <Button appearance="ghost" arrow="right">
+      <Button appearance="ghost" arrow="down">
         Knopka
       </Button>
       <P size="l">Boyuk </P>
@@ -38,7 +40,7 @@ export default function Home(): JSX.Element {
       <Tag size="m" color="red">
         red
       </Tag>
-      <Rating rating={4} />
+      <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
 }

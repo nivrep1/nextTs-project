@@ -6,3 +6,7 @@
   display: inline-block;
   margin-right: 5px;
 }
+
+.editable {
+  cursor: pointer;
+}
