@@ -20,7 +20,7 @@ export const Rating = ({
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
-        <StarIcon
+        <span
           className={cn(styles.star, {
             [styles.filled]: i < currentRating,
             [styles.editable]: isEditable,
@@ -30,11 +30,14 @@ export const Rating = ({
           onClick={() => {
             onClick(i + 1);
           }}
-          tabIndex={isEditable ? 0 : -1}
-          onKeyDown={(e: KeyboardEvent<SVGElement>) =>
-            isEditable && handleSpace(i + 1, e)
-          }
-        />
+        >
+          <StarIcon
+            tabIndex={isEditable ? 0 : -1}
+            onKeyDown={(e: KeyboardEvent<SVGElement>) =>
+              isEditable && handleSpace(i + 1, e)
+            }
+          />
+        </span>
       );
     });
     setRatingArray(updatedArray);
