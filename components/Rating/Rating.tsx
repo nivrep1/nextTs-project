@@ -2,6 +2,7 @@ import { RatingProps } from "./Rating.props";
 import styles from "./Rating.module.css";
 import cn from "classnames";
 import { useEffect, useState } from "react";
+import StarIcon from "../../public/SVG/star.svg";
 export const Rating = ({
   isEditable = false,
   rating,
@@ -19,12 +20,10 @@ export const Rating = ({
   const constructRating = (currentRating: number) => {
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
-        <img
+        <StarIcon
           className={cn(styles.star, {
             [styles.filled]: i < currentRating,
           })}
-          src="/Star.svg"
-          alt="star"
         />
       );
     });
